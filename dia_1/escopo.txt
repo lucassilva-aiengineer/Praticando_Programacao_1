@@ -1,0 +1,15 @@
+Um sistema de supermecado. 
+
+Um sitema de supermecado, com usuario que adiciona produtos ao catalogo, 
+
+=====================================================================
+Descrição:
+
+
+Classe Usuario, esta classe serve para modelar o objeto usuário que 
+possui nome, nome de usuário, senha e status como atributos e nos permite adicionar 
+produtos em um objeto estoque. 
+
+
+
+
