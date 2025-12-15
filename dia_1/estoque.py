@@ -20,7 +20,7 @@ class Estoque:
         # Privando os atributos para definirmos a lógica de encapsulamento. 
 
         # Este atributo armazenará objetos produto. 
-        self.__produtos = []
+        self.__produtos = {}
 
         # Quando cada estoque for criado nós teremos o registro de tempo. 
 
@@ -47,7 +47,7 @@ class Estoque:
 
     
 
-    def adicionar_produto(self, robo= None, nome= None, custo= None, lucro= None, imposto= None, quantidade= None, validade= None):
+    def adicionar_produto(self, robo= None, nome= None, custo= None, lucro= None, imposto= None, quantidade= None, validade= None, secao= None):
 
         # nome = input("Indique ") 
 
@@ -78,12 +78,20 @@ class Estoque:
                     print()
                     validade = int(input("Indique a quantidade de meses que esse produto ainda será válido: "))
 
+                    print()
+                    secao = input("Indique a secao da qual este produto faz parte: ")
                     # Futuramente irei criar uma classe produtos, 
                     # por enquanto estou apenas testando. 
 
                     produto_a = Produto(nome, custo, lucro, imposto, quantidade, validade)
 
-                    self.__produtos.append(produto_a)
+                    # self.__produtos.append(produto_a)
+
+                    if not secao in self.__produtos:
+
+                        self.__produtos[secao] = []
+
+                    self.__produtos[secao].append(produto_a)
 
                     time.sleep(1)
                     print("Produto adicionado com sucesso!")
@@ -109,9 +117,14 @@ class Estoque:
 
         else: 
 
-            produto_a = Produto(nome, custo,lucro, imposto, quantidade, validade)
+            produto_a = Produto(nome, custo, lucro, imposto, quantidade, validade)
 
-            self.__produtos.append(produto_a)
+            if not secao in self.__produtos:
+
+                self.__produtos[secao] = []
+
+            self.__produtos[secao].append(produto_a)
+
 
 
 
@@ -142,7 +155,7 @@ class Estoque:
 # print("Tempo: ", tempo)
 
 
-estoque_1 = Estoque("Supermecado.")
+# estoque_1 = Estoque("Supermecado.")
 
 # estoque_1.adicionar_produto()
 
@@ -186,6 +199,49 @@ def mostrar_produtos(objeto_estoque):
         produtos_mostrados += 1
 
 
-criar_produtos(produtos_de_mercado)
+# criar_produtos(produtos_de_mercado)
 
-mostrar_produtos(estoque_1)
+# mostrar_produtos(estoque_1)
+
+
+
+# estoque_1 = Estoque("Supermecado")
+
+# estoque_1.adicionar_produto(False)
+
+
+def manipulacao_dicionarios():
+
+
+    dicionario_teste = {"Nomes": ["Lucas", "Mateus"]}
+
+    nome = dicionario_teste["Nomes"][0]
+
+    if "Nomes" in dicionario_teste: 
+
+        print("A chave nome está no dicionário de testes!")
+
+
+    for chave in dicionario_teste:
+
+        for nome in dicionario_teste[chave]:
+
+            print(nome)
+
+    print(dicionario_teste["Nomes"][0])
+
+    outro_nome = "Marcos"
+
+    dicionario_teste["Nomes"].append(outro_nome)
+
+    for valor in dicionario_teste["Nomes"]:
+
+        print(valor)
+
+
+
+estoque_1 = Estoque("Mercado.")
+
+estoque_1.adicionar_produto(False)
+
+print(estoque_1.produtos["salgados"])
