@@ -1,0 +1,11 @@
+Escopo:
+
+
+Modelando uma biblioteca.
+
+A ideia é modelar o sistema de uma biblioteca virtual, é um sistema voltado a uma biblioteca online
+que possui um sistema moderno que permite um emprestimo de livros de uma forma moderna, 
+como funciona: existe um catálogo de livros online acessível a qualquer pessoa, neste sistema, os usuários 
+verificam a disponibilidade de livros de forma remota, assim como o emprestimo, quando disponível os usuários 
+podem pedir o livro emprestado a caso cumpram os critérios necessários terão o livro entregue em suas casas. 
+para devolve-los basta sinalizar no sistema que a empresa irá recolhe-lo em sua casa.  
