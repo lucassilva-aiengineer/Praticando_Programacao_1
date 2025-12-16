@@ -10,7 +10,7 @@ class Livro:
         self.__ano = ano 
         self.__editora = editora
         self.__status = True 
-        self.__id_ = funcoes.gerar_id
+        self.__id_ = funcoes.gerar_id()
 
 
 # Getters 

@@ -2,11 +2,51 @@ from livro import Livro
 
 class Livraria:
 
-    def __init__(self):
+    def __init__(self, nome, contato):
 
+        self.__nome = nome
+        self.__contato = contato
         self.__livros = []
-        self.__contato = "(62) 99215-8128"
         self.__leitores_mes = []
+
+    # Definindo os getters
+    # A lógica de leitura que irá possíbilitar o acesso aos atributos. 
+
+    @property 
+    def nome(self):
+        return self.__nome
+
+    @property
+    def contato(self):
+        return self.__contato 
+
+    @property 
+    def livros(self):
+        return self.__livros 
+
+    @property 
+    def leitores_mes(self):
+        return self.__leitores_mes
+
+    # Defindo uma regra de escrita. 
+    # pela qual nós poderemos modificar os atributos. 
+
+    @nome.setter
+    def nome(self, novo_nome):
+        self.__nome = novo_nome 
+
+    @contato.setter 
+    def contato(self, novo_contato):
+        self.__contato = novo_contato 
+
+    @livros.setter 
+    def livros(self, novos_livros):
+        self.__livros = novos_livros
+
+    @leitores_mes
+    def leitores_mes(self, novos_leitores_mes):
+        self.__leitores_mes = novos_leitores_mes
+
 
 
     def adicionar_livro(self, automatico= False, \
@@ -39,21 +79,21 @@ class Livraria:
 
 
         
-        def exibir_livros(): 
+    def exibir_livros(self): 
 
-            for livro in self.__livros: 
+        for livro in self.__livros: 
 
-                status = None 
+            status = None 
 
-                if livro.status == True: 
-                    status = "Disponível"
+            if livro.status == True: 
+                status = "Disponível"
 
-                else: 
-                    status = "Indisponível"
+            else: 
+                status = "Indisponível"
 
-                print(f""" ======================
+            print(f""" ======================
 
-Id: {livro.id}
+Id: {livro.id_}
 Título: {livro.nome}
 Autor: {livro.autor}
 Edição: {livro.edicao}

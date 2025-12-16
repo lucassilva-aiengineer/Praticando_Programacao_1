@@ -14,4 +14,21 @@ def gerar_id():
 
     return id_ 
 
-print(gerar_id()) 
+
+
+# Uma funcao que cria livros automaticamente. 
+
+def adicionar_livros(lista_titulos, livraria_a):
+
+    faker = Faker('pt_BR')
+
+    for valor in range(0, 10):
+
+        random.shuffle(lista_titulos)
+        titulo = random.choice(lista_titulos)
+        autor_a = faker.name_male()
+        edicao_a = random.randint(1, 5)
+        ano_a = random.randint(1850, 2025)
+        editora_a = faker.company()
+
+        livraria_a.adicionar_livro(automatico= True, nome= titulo, autor= autor_a, edicao= edicao_a, ano= ano_a, editora= editora_a)
