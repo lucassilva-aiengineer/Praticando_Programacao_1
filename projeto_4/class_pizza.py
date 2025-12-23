@@ -9,9 +9,9 @@ class Pizza:
 
         self.__sabor = sabor 
         self.__custo = custo 
-        self.__igredientes = igredientes.split(", ")
-        self.__impostos = 0 
-        self.__valor = 0 
+        self.__igredientes = igredientes
+        self.__impostos = 30 
+        self.__valor = 10 
         self.__margem_lucro = 20 / 100
 
 
@@ -92,7 +92,7 @@ class Pizza:
 
     def alterar_sabor(self): 
 
-        def alterando_sabor(self):
+        def alterando_sabor():
             while True: 
 
                 print("Alterando o sabor da pizza de ", self.__sabor," ...")
@@ -105,9 +105,9 @@ class Pizza:
                 if confirmacao.lower() == "sim": 
 
                     print("Alterando sabor...")
-                    time.sleep()
+                    time.sleep(2)
 
-                    self.__sabor == novo_sabor.title()
+                    self.__sabor = novo_sabor.title()
 
                     break
 
@@ -128,13 +128,14 @@ class Pizza:
 
         try: 
 
-            alterando_sabor(self)
+            alterando_sabor()
 
         except Exception as a: 
 
             print("Tentando novamente...")
 
-            alterando_sabor(self)
+            alterando_sabor()
+
 
 
 
@@ -159,7 +160,22 @@ def testando_acesso_obj_pizza():
 
         numero += 1
 
-testando_acesso_obj_pizza()
+# testando_acesso_obj_pizza()
+
+
+# Alterando o sabor do objeto pizza, atributo sabor. 
+
+def testando_alterar_sabor(objeto):
+
+    print("Sabor atual: " + objeto.sabor)
+
+    objeto.alterar_sabor()
+
+    print("Novo sabor: ", objeto.sabor)
+
+
+testando_alterar_sabor(pizza_1)
+
 
 def teetando_str():
     nome = "LUcAs"
