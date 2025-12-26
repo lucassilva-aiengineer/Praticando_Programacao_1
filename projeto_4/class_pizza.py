@@ -21,6 +21,9 @@ class Pizza:
     # Definindo as regras de leitura de cada atributo. 
     # Temos o encapsulamento para que eles não sejam acessados, lidos ou escritos de qualquer forma. 
 
+    print("Lucas Soares da Silva")
+    print(""" AI Student""")
+
     @property 
     def sabor(self):
         return self.__sabor 

@@ -49,15 +49,20 @@ class Livro:
 
     @nome.setter 
     def nome(self, novo_nome):
-        self.__nome = novo_nome 
+
+        nome_formatado = novo_nome.title()
+        self.__nome = nome_formatado
 
     @autor.setter 
     def autor(self, novo_autor ):
-        self.__autor = novo_autor 
+
+        nome_autor = novo_autor.title()
+        self.__autor = nome_autor
 
     @edicao.setter 
     def edicao(self, nova_edicao):
         self.__edicao = nova_edicao 
+
 
     @ano.setter 
     def ano(self, novo_ano):
