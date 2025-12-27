@@ -1,18 +1,18 @@
 class Roupa:
 
-    def __init__(self, modelo, marca, tamanho, cor):
+    def __init__(self, modelo, marca, tamanho, cor, quantidade):
 
         # Atributos privados 
         self.__modelo = modelo
         self.__marca = marca   
         self.__tamanho = tamanho 
         self.__cor = cor 
+        self.__quantidade = quantidade
 
     # Definindo o encapsulamento.
     # Defindo os getters, a lógica de leitura. 
     # O encapsulamento serve para proteger o acesso aos atributos, tanto em relação a 
     # escrita como em relação a leitura. 
-
 
     @property
     def modelo(self): # Nós temos o próprio objeto como parâmetro da função e acessamos o atributo deste. 
@@ -58,6 +58,12 @@ class Roupa:
     def cor(self):
         return self.__cor 
 
+    
+    @property 
+    def quantidade(self):
+        return self.__quantidade 
+
+
 
     # Defindo uma regra especial de escrita, os setters. 
     @modelo.setter 
@@ -80,6 +86,9 @@ class Roupa:
         self.__cor = nova_cor 
 
 
+    @quantidade.setter 
+    def quantidade(self, nova_quantidade):
+        self.__quantidade = nova_quantidade 
 
 # Testando o molde dos objetos que serão criados, e possuiram os próprios atributos e 
 # os próprios métodos que modificaram os próprios atributos. 
