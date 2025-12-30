@@ -2,6 +2,8 @@ from class_operador import OperadorComum
 from class_roupa import Roupa 
 from class_estoque_roupas import EstoqueRoupas
 
+from faker import Faker
+import random 
 
 
 
@@ -44,7 +46,7 @@ def criando_objetos_roupas():
 
         quantidade = random.randint(0, 100)
 
-        objeto_roupa = class_roupa.Roupa(modelo, marca, tamanho, cor, quantidade)
+        objeto_roupa = Roupa(modelo, marca, tamanho, cor, quantidade)
 
         objetos_roupas.append(objeto_roupa)
 
@@ -56,23 +58,27 @@ def criando_objetos_roupas():
 
 # Criando uma lista de objetos roupa. 
 
-lista_objetos_roupa = criando_objetos_roupas()
+# lista_objetos_roupa = criando_objetos_roupas()
 
 
 # Criando um objeto operador. 
 
-operador_a = OperadorComum("Mateus", "abcd", "mateus_1")
+operador_a = OperadorComum(nome= "Mateus", senha= "abcd", id_= "mateus_1")
 
 
 # Criando o objeto estoque. 
 
-estoque_1 = EstoqueRoupas(lista_objetos_roupas, operador_a)
+# estoque_1 = EstoqueRoupas(lista_objetos_roupa, operador_a)  
+
+estoque_2 = EstoqueRoupas(operadores= [operador_a])
 
 
-roupas_no_estoque = estoque_1.roupas
+roupas_no_estoque = estoque_2.roupas 
 
 
 # Terminar o teste. 
+
+
 
 def visualizando_estoque(lista_estoque):
     for roupa in lista_estoque:
@@ -84,3 +90,12 @@ def visualizando_estoque(lista_estoque):
     Quantidade: {roupa.quantidade}""")
 
 
+visualizando_estoque(roupas_no_estoque) 
+
+# Testando as manipulações do estoque. 
+
+estoque_2.adicionar_modelos()
+
+roupas_no_estoque = estoque_2.roupas
+
+visualizando_estoque(roupas_no_estoque)

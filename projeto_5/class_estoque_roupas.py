@@ -16,27 +16,68 @@ class EstoqueRoupas:
         self.__historico_operacoes_true = []
         self.__historico_operacoes_false = []
 
+    # Definindo o encapsulamentos, essas regras de acesso, que limitam o acesso 
+    # externo aos atributos, tanto em relação a leitura, os getters (@property), 
+    # quanto em relação a leitura os setters. 
+
+    # @ Getters 
+    # Definindo os métodos destinados a leitura. 
     @property 
     def roupas(self):
         return self.__roupas
 
+    @property 
+    def operadores(self):
+        return self.__operadores
 
-    @roupas.setter
-    def roupas(self, nova_roupas):
-        self.__roupas = nova_roupas
+    @property 
+    def historico_operacoes_true(self):
+        return self.__historico_operacoes_true 
+
+    @property 
+    def historico_operacoes_false(self):
+        return self.__historico_operacoes_false
+
+
+    # @Setters. 
+    # Definindo os métodos orientados a escrita. 
+
+    @roupas.setter 
+    def roupas(self, novas_roupas): 
+        self.__roupas = novas_roupas 
+
+
+    @operadores.setter 
+    def operadores(self, novos_operadores):
+        self.__operadores = novos_operadores 
+
+
+    @historico_operacoes_true.setter 
+    def historico_operacoes_true(self, operacoes_true):
+        self.__historico_operacoes_true = operacoes_true 
+
+
+    @historico_operacoes_false.setter 
+    def historico_operacoes_false(self, operacoes_false):
+        self.__historico_operacoes_false = operacoes_false 
 
 
     # Criando os métodos dos objetos, ou métodos da classe. 
 
     def adicionar_modelos(self):
 
+        permitir_alteracao = False
+
         tentativas_realizadas = 0
         while tentativas_realizadas <= 3:
+
+            print("Verificação de usuário...")
+            time.sleep(2)
 
             nome = input("Indique o seu nome: ")
             senha = input("Indique a sua senha: ")
 
-            permitir_alteracao = False
+
             for operador in self.__operadores:
 
                 # A senha deverá utilizar apenas letras minúsculas. 
@@ -55,7 +96,7 @@ class EstoqueRoupas:
                         relatorio["alterador"] = operador.nome 
                         relatorio["horario"]   = horario 
                         # relatorio["objeto"] = operador 
-                        relatorio["id"] = operador.id
+                        relatorio["id"] = operador.id_
 
                         self.__historico_operacoes_true.append(relatorio)
 
@@ -64,6 +105,13 @@ class EstoqueRoupas:
 
                         print("Prossegindo com a operação. ")
                         time.sleep(2)
+
+                        permitir_alteracao = True
+
+                        tentativas_realizadas += 4
+
+                        # A palavra chave break serve tanto 
+                        # loops for como para loops while. 
 
                         break
 
@@ -104,7 +152,7 @@ class EstoqueRoupas:
 
 
 
-        if permitir_operacao == True:
+        if permitir_alteracao == True:
 
             print("Olá!")
             time.sleep(2)
@@ -140,7 +188,12 @@ class EstoqueRoupas:
                 elif opcao == 2: 
 
                     print("Obrigador por trabalhar conosco.")
+                    time.sleep(2)
                     print("Saindo...")
+
+                    time.sleep(2)
+
+                    break 
 
 
 # Criando um objeto estoque. 

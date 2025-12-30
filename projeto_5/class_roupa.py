@@ -1,8 +1,12 @@
+import funcoes 
+
+
 class Roupa:
 
     def __init__(self, modelo, marca, tamanho, cor, quantidade):
 
         # Atributos privados 
+        self.__id_ = funcoes.gerar_id()
         self.__modelo = modelo
         self.__marca = marca   
         self.__tamanho = tamanho 
@@ -14,34 +18,40 @@ class Roupa:
     # O encapsulamento serve para proteger o acesso aos atributos, tanto em relação a 
     # escrita como em relação a leitura. 
 
+    @property 
+    def id_(self):
+        return self.__id_
+
     @property
     def modelo(self): # Nós temos o próprio objeto como parâmetro da função e acessamos o atributo deste. 
         # Definindo uma lógica especial de acesso.
 
 
         # Para isto 
-        modelo_mostrar = ""
+        # modelo_mostrar = ""
 
-        caracteres_acrescentados = 0
-        for caracter in self.__modelo:
+        # caracteres_acrescentados = 0
+        # for caracter in self.__modelo:
 
-            if caracteres_acrescentados >= 5:
+        #     if caracteres_acrescentados >= 5:
 
-                if caracter == " ":
-                    modelo_mostrar += "-"
+        #         if caracter == " ":
+        #             modelo_mostrar += "-"
 
 
-                else:
+        #         else:
 
-                    modelo_mostrar += "*"
+        #             modelo_mostrar += "*"
 
-            else: 
+        #     else: 
 
-                modelo_mostrar += caracter
+        #         modelo_mostrar += caracter
 
-            caracteres_acrescentados += 1
+        #     caracteres_acrescentados += 1
 
-        return modelo_mostrar
+        # return modelo_mostrar 
+
+        return self.__modelo
 
 
     @property 
@@ -66,6 +76,11 @@ class Roupa:
 
 
     # Defindo uma regra especial de escrita, os setters. 
+
+    @id_.setter 
+    def id_(self, novo_id):
+        self.__id_ = novo_id
+
     @modelo.setter 
     def modelo(self, novo_modelo):
         self.__modelo = novo_modelo 

@@ -1,4 +1,5 @@
 import time 
+import funcoes 
 
 class OperadorComum:
 
@@ -8,13 +9,17 @@ class OperadorComum:
 
     def __init__(self, nome= None, senha= None, id_ = None):
 
+        self.__id_ = funcoes.gerar_id()
         self.__nome = nome 
         self.__senha = senha 
         # self.__historico_alteracoes = [] 
-        self.__id_ = id_ 
 
 
     # Getters, leitura
+    @property 
+    def id_(self):
+        return self.__id_
+
     @property 
     def nome(self): # O próprio objeto é passado como parâmetro e dessa forma o atributo é acessado. 
         return self.__nome 
@@ -22,45 +27,45 @@ class OperadorComum:
 
     @property 
     def senha(self):
+        return self.__senha
 
-        tentativas = 0
-        while True:
+        # tentativas = 0
+        # while True:
 
-            senha_acesso = input("Indique a sua senha de acesso para acessar a senha deste usuário: ")
+        #     senha_acesso = input("Indique a sua senha de acesso para acessar a senha deste usuário: ")
 
-            if senha_acesso == OperadorComum.acesso_geral:
+        #     if senha_acesso == OperadorComum.acesso_geral:
 
-                return self.__senha
+        #         return self.__senha
 
-            else: 
+        #     else: 
 
-                tentativas += 1 
-                print("Acesso negado!")
+        #         tentativas += 1 
+        #         print("Acesso negado!")
 
-                if tentativas < 3:
-                    print("Tente novamente...")
+        #         if tentativas < 3:
+        #             print("Tente novamente...")
 
-                    time.sleep(2)
-
-
-                else: 
-
-                    print("Acesso negado!")
-                    time.sleep(2)
-
-                    print("Cancelando operação...")
-                    time.sleep(2)
-                    break   
+        #             time.sleep(2)
 
 
-                    
+        #         else: 
 
-    @property 
-    def id_(self):
-        return self.__id_ 
+        #             print("Acesso negado!")
+        #             time.sleep(2)
 
+        #             print("Cancelando operação...")
+        #             time.sleep(2)
+        #             break   
 
+    
     #  Setters, escrita. 
+
+    @id_.setter 
+    def id_(self, novo_id):
+        self.__id_ = novo_id
+
+
     @nome.setter 
     def nome(self, novo_nome):
         self.__nome = novo_nome 
@@ -107,7 +112,3 @@ class OperadorComum:
 
                     break 
 
-
-    @id_.setter 
-    def id_(self, novo_id):
-        self.__id_ = novo_id
